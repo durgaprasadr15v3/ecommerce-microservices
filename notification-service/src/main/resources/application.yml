@@ -1,0 +1,48 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: notification-service
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: durgaprasad3172@gmail.com
+    password: xgwe wfjw tvzb kvte
+    properties:
+       mail:
+          smtp:
+            auth: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+
+
+#aws:
+#  access-key: YOUR_AWS_ACCESS_KEY
+#  secret-key: YOUR_AWS_SECRET_KEY
+#  region: ap-south-1
+#  sqs:
+#    notify-queue-url: https://sqs.ap-south-1.amazonaws.com/123456789012/notify-queue
+#
+#spring.cloud.aws:
+#  credentials:
+#    access-key: ${aws.access-key}
+#    secret-key: ${aws.secret-key}
+#  region:
+#    static: ${aws.region}
+
+# Optional: email config (uncomment if using JavaMailSender)
+# spring.mail:
+#   host: smtp.gmail.com
+#   port: 587
+#   username: your@gmail.com
+#   password: your-app-password
+#   properties.mail.smtp.starttls.enable: true

@@ -1,0 +1,40 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/paymentdb
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+aws:
+  access-key: YOUR_AWS_ACCESS_KEY
+  secret-key: YOUR_AWS_SECRET_KEY
+  region: ap-south-1
+  sns:
+    order-topic-arn: arn:aws:sns:ap-south-1:123456789012:order-events
+  sqs:
+    payment-queue-url: https://sqs.ap-south-1.amazonaws.com/123456789012/payment-queue
+
+spring.cloud.aws:
+  credentials:
+    access-key: ${aws.access-key}
+    secret-key: ${aws.secret-key}
+  region:
+    static: ${aws.region}
