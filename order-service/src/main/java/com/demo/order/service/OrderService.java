@@ -79,6 +79,12 @@ public class OrderService {
 
         // Step 5: Publish to SNS -> fans out to SQS queues
         publishOrderEvent(saved, "ORDER_PLACED");
+         // save the update date in db
+
+        //this my modification code
+        //this my modification code
+        //second coding change by the durga prasad
+        //thrid time code change by the prasad
 
         return mapToResponse(saved);
     }
